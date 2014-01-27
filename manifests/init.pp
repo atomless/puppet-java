@@ -15,16 +15,16 @@ class java {
 
 
   package {
-    'jre-7u21.dmg':
-      ensure   => absent,
-      alias    => 'java-jre',
-      provider => pkgdmg,
-      source   => $jre_url ;
-    'jdk-7u21.dmg':
-      ensure   => absent,
-      alias    => 'java',
-      provider => pkgdmg,
-      source   => $jdk_url ;
+    # 'jre-7u21.dmg':
+    #   ensure   => absent,
+    #   alias    => 'java-jre',
+    #   provider => pkgdmg,
+    #   source   => $jre_url ;
+    # 'jdk-7u21.dmg':
+    #   ensure   => absent,
+    #   alias    => 'java',
+    #   provider => pkgdmg,
+    #   source   => $jdk_url ;
     'JavaForOSX2013-05.dmg':
       ensure   => present,
       alias    => 'Java SE 6',
