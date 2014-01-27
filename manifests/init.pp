@@ -27,7 +27,7 @@ class java {
       source   => $jdk_url ;
     'JavaForOSX2013-05.dmg':
       ensure   => present,
-      alias    => 'java6',
+      alias    => 'Java SE 6',
       provider => pkgdmg,
       source   => $java_url;
   }
@@ -36,7 +36,7 @@ class java {
   file { $wrapper:
     source  => 'puppet:///modules/java/java.sh',
     mode    => '0755',
-    require => Package['java6']
+    require => Package['Java SE 6']
   }
 
 
@@ -48,7 +48,7 @@ class java {
     owner   => 'root',
     group   => 'wheel',
     mode    => '0775',
-    require => Package['java6']
+    require => Package['Java SE 6']
   }
 
   file { "${sec_dir}/local_policy.jar":
