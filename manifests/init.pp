@@ -13,6 +13,7 @@ class java {
 
   $java_url = "http://support.apple.com/downloads/DL1572/en_US/JavaForOSX2013-05.dmg"
 
+
   package {
     'jre-7u21.dmg':
       ensure   => absent,
@@ -21,7 +22,7 @@ class java {
       source   => $jre_url ;
     'jdk-7u21.dmg':
       ensure   => absent,
-      alias    => 'java',
+      alias    => 'java-jdk',
       provider => pkgdmg,
       source   => $jdk_url ;
     'JavaForOSX2013-05.dmg':
