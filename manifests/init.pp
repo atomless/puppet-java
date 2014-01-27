@@ -11,18 +11,26 @@ class java {
   $wrapper = "${boxen::config::bindir}/java"
   $sec_dir = '/Library/Java/JavaVirtualMachines/jdk1.7.0_21.jdk/Contents/Home/jre/lib/security'
 
+  $java_url = "http://support.apple.com/downloads/DL1572/en_US/JavaForOSX2013-05.dmg"
+
   package {
     'jre-7u21.dmg':
-      ensure   => present,
+      ensure   => absent,
       alias    => 'java-jre',
       provider => pkgdmg,
       source   => $jre_url ;
     'jdk-7u21.dmg':
-      ensure   => present,
+      ensure   => absent,
       alias    => 'java',
       provider => pkgdmg,
       source   => $jdk_url ;
+    'JavaForOSX2013-05.dmg':
+      ensure   => present,
+      alias    => 'java',
+      provider => pkgdmg,
+      source   => $java_url;
   }
+
 
   file { $wrapper:
     source  => 'puppet:///modules/java/java.sh',
